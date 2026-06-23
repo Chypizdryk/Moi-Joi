@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class FastEnemy : MonoBehaviour
 {
-    public float EnemySpeed = 5f;
+    public float EnemySpeed = 6f;
     public Shooting Fire;
     public float ShootInterval = 1f;
 

@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
-    public float BackSpeed = 2f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float speed = 2f;
+    public float resetZ = -10f;
+    public float startZ = 10f;
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * BackSpeed * Time.deltaTime);
-        if (transform.position.y < -5f)
-            transform.position = new Vector3(0, 20, 0);
+        transform.Translate(Vector3.back * speed * Time.deltaTime);
+
+        if (transform.position.z < resetZ)
+        {
+            Vector3 pos = transform.position;
+            pos.z = startZ;
+            transform.position = pos;
+        }
     }
 }
