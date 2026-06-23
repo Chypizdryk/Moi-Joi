@@ -7,6 +7,6 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * BulletSpeed * Time.deltaTime);
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 2f);
     }
 }

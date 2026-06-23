@@ -2,20 +2,61 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float EnemySpeed = 5f;
-    public Shooting Fire;
-    public float ShootInterval = 1f;
+    [Header("Movement")]
+    public float enterSpeed = 2f;
+    public float moveSpeed = 5f;
 
-    float nextShootTime;
+    [Header("Timings")]
+    public float enterTime = 2f;
+    public float waitTime = 1f;
+
+    [Header("Shooting")]
+    public Shooting fire;
+    public float shootInterval = 1f;
+
+    float timer;
+    float stateTimer;
+    float nextShoot;
+
+    int state = 0; 
     
     void Update()
     {
-        transform.Translate(Vector3.back * EnemySpeed * Time.deltaTime);
+        timer += Time.deltaTime;
         
-        if (Time.time >= nextShootTime)
+        if (state == 0)
         {
-            Fire.Shoot();
-            nextShootTime = Time.time + ShootInterval;
+            transform.Translate(Vector3.back * enterSpeed * Time.deltaTime);
+
+            if (timer >= enterTime)
+            {
+                state = 1;
+                stateTimer = 0f;
+            }
+
+            return;
+        }
+        
+        if (state == 1)
+        {
+            stateTimer += Time.deltaTime;
+
+            if (stateTimer >= waitTime)
+            {
+                state = 2;
+            }
+
+            return;
+        }
+        
+        transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+
+        if (Time.time >= nextShoot)
+        {
+            if (fire != null)
+                fire.Shoot();
+
+            nextShoot = Time.time + shootInterval;
         }
     }
 }
