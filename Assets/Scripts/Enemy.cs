@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     MeshRenderer rend;
     Material[] mats;
 
+    public GameObject explosionPrefab;
+
     float timer;
     float stateTimer;
     float nextShoot;
@@ -129,6 +131,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

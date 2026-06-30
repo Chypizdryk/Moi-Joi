@@ -87,6 +87,7 @@ MonoBehaviour:
   fire: {fileID: 1526086594594070383}
   shootInterval: 1
   maxHP: 1
+  explosionPrefab: {fileID: 8945456791454951979, guid: 6395cb8b6101f484ab1fa47463b0b267, type: 3}
 --- !u!114 &1526086594594070383
 MonoBehaviour:
   m_ObjectHideFlags: 0

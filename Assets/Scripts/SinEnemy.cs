@@ -8,8 +8,8 @@ public class SinEnemy : MonoBehaviour
     public float moveSpeed = 2f;
 
     [Header("Sin Movement")]
-    public float frequency = 2f;
-    public float amplitude = 2f;
+    public float frequency = 3f;
+    public float amplitude = 3f;
 
     [Header("Timings")]
     public float enterTime = 2f;
@@ -29,6 +29,8 @@ public class SinEnemy : MonoBehaviour
     float timer;
     float stateTimer;
     float nextShoot;
+
+    public GameObject explosionPrefab;
 
     bool invincible = true;
 
@@ -140,6 +142,7 @@ public class SinEnemy : MonoBehaviour
 
     void Die()
     {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

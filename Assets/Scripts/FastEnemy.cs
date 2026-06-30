@@ -26,6 +26,8 @@ public class FastEnemy : MonoBehaviour
     float stateTimer;
     float nextShoot;
 
+    public GameObject explosionPrefab;
+
     int state = 0;
 
     bool invincible = true;
@@ -34,7 +36,7 @@ public class FastEnemy : MonoBehaviour
     {
         currentHP = maxHP;
         
-        rend = GetComponent<MeshRenderer>();
+        rend = GetComponentInChildren<MeshRenderer>();
         mats = rend.materials;
     }
 
@@ -125,6 +127,7 @@ public class FastEnemy : MonoBehaviour
 
     void Die()
     {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
