@@ -34,19 +34,19 @@ public class Spawner : MonoBehaviour
             wave2Spawned = true;
         }
 
-        if (time >= 33f && !wave3Spawned)
+        if (time >= 35f && !wave3Spawned)
         {
             SpawnWave3();
             wave3Spawned = true;
         }
 
-        if (time >= 43f && !wave4Spawned)
+        if (time >= 45f && !wave4Spawned)
         {
             SpawnWave4();
             wave4Spawned = true;
         }
 
-        if (time >= 55f && !bossSpawned)
+        if (time >= 57f && !bossSpawned)
         {
             SpawnBoss();
             bossSpawned = true;

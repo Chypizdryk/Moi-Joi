@@ -50,6 +50,18 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
 
+            if (other.CompareTag("Boss"))
+            {
+                Boss boss = other.GetComponentInParent<Boss>();
+
+                if (boss != null)
+                {
+                    boss.TakeDamage(damage);
+                }
+
+                Destroy(gameObject);
+            }
+
             if (other.CompareTag("Player"))
             {
                 return;
@@ -71,6 +83,16 @@ public class Bullet : MonoBehaviour
             }
 
             if (other.CompareTag("Enemy"))
+            {
+                return;
+            }
+            
+            if (other.CompareTag("FastEnemy"))
+            {
+                return;
+            }
+            
+            if (other.CompareTag("SinEnemy"))
             {
                 return;
             }

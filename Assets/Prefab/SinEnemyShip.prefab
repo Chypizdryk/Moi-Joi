@@ -83,7 +83,7 @@ MonoBehaviour:
   enterSpeed: 2
   moveSpeed: 1.7
   frequency: 2
-  amplitude: 2
+  amplitude: 3
   enterTime: 2
   waitTime: 1
   fire: {fileID: 3959651485085094856}

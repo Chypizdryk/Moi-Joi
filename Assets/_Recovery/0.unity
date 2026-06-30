@@ -166,7 +166,7 @@ MonoBehaviour:
   Enemy: {fileID: 2489042719430698599, guid: 240127b61554ef1418887a0908a4c499, type: 3}
   FastEnemy: {fileID: 5205990949716790895, guid: 33f421a261f132d4caa1c9b8b424ba51, type: 3}
   SinEnemy: {fileID: 3742529998015525740, guid: b94b75006c9811947b0527bb58bac693, type: 3}
-  Boss: {fileID: 0}
+  Boss: {fileID: 1766943682128562674, guid: d999a3daf43f5a94aaf60c3a49ed20fa, type: 3}
   spawnerL: {fileID: 1225178086}
   spawnerM: {fileID: 258587286}
   spawnerR: {fileID: 605810361}
@@ -1650,7 +1650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Background
   speed: 7
-  resetZ: -20
+  resetZ: -21
   startZ: 20
 --- !u!64 &1812533236
 MeshCollider:
@@ -1779,7 +1779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Background
   speed: 7
-  resetZ: -20
+  resetZ: -21
   startZ: 20
 --- !u!64 &1907483671
 MeshCollider:
@@ -2037,7 +2037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Background
   speed: 7
-  resetZ: -20
+  resetZ: -21
   startZ: 20
 --- !u!64 &2030446177
 MeshCollider:
@@ -2166,7 +2166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Background
   speed: 7
-  resetZ: -20
+  resetZ: -21
   startZ: 20
 --- !u!64 &2051671656
 MeshCollider:

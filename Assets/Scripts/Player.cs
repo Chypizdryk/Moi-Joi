@@ -148,6 +148,18 @@ public class Player : MonoBehaviour
             {
                 sinenemy.TakeDamage(1);
             }
+
+            if (other.CompareTag("Boss"))
+            {
+                TakeDamage(1);
+
+                Boss boss = other.GetComponent<Boss>();
+
+                if (boss != null)
+                {
+                    boss.TakeDamage(1);
+                }
+            }
         }
     }
 }
