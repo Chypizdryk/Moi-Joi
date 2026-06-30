@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -5,6 +6,9 @@ public class Player : MonoBehaviour
     public int maxHP = 10;
     int currentHP;
     bool isDead = false;
+    
+    MeshRenderer rend;
+    Material[] mats;
 
     public float Speed = 5f;
 
@@ -22,6 +26,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
+        
+        rend = GetComponentInChildren<MeshRenderer>();
+        mats = rend.materials;
     }
 
     void Update()
@@ -31,7 +38,7 @@ public class Player : MonoBehaviour
             transform.Translate(Vector3.down * 2f * Time.deltaTime);
             return;
         }
-        
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -64,6 +71,8 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        StartCoroutine(HitDamage());
+        
         currentHP -= damage;
 
         if (currentHP <= 0)
@@ -71,15 +80,35 @@ public class Player : MonoBehaviour
             Die();
         }
     }
+    
+    IEnumerator HitDamage()
+    {
+        foreach (Material mat in mats)
+        {
+            if (mat.HasProperty("_EmissionColor"))
+            {
+                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", Color.red * 1f);
+            }
+        }
+        
+        yield return  new WaitForSeconds(0.1f);
+
+        foreach (Material mat in mats)
+        {
+            if (mat.HasProperty("_EmissionColor"))
+                mat.SetColor("_EmissionColor", Color.black);
+        }
+    }
 
     void Die()
     {
         isDead = true;
-        
+
         Time.timeScale = 0.2f;
-        
+
         Fire.enabled = false;
-        
+
         Destroy(gameObject, 1f);
     }
 
@@ -90,22 +119,34 @@ public class Player : MonoBehaviour
             TakeDamage(1);
 
             Enemy enemy = other.GetComponent<Enemy>();
-            
+
             if (enemy != null)
             {
                 enemy.TakeDamage(1);
             }
         }
-        
+
         if (other.CompareTag("FastEnemy"))
         {
             TakeDamage(1);
 
             FastEnemy fastenemy = other.GetComponent<FastEnemy>();
-            
+
             if (fastenemy != null)
             {
                 fastenemy.TakeDamage(1);
+            }
+        }
+
+        if (other.CompareTag("SinEnemy"))
+        {
+            TakeDamage(1);
+
+            SinEnemy sinenemy = other.GetComponent<SinEnemy>();
+
+            if (sinenemy != null)
+            {
+                sinenemy.TakeDamage(1);
             }
         }
     }

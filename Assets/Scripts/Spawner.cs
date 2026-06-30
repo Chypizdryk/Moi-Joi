@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+
 
 public class Spawner : MonoBehaviour
 {
@@ -28,7 +30,7 @@ public class Spawner : MonoBehaviour
 
         if (time >= 10f && !wave2Spawned)
         {
-            SpawnWave2();
+            StartCoroutine(SpawnWave2());
             wave2Spawned = true;
         }
 
@@ -58,13 +60,16 @@ public class Spawner : MonoBehaviour
         Instantiate(Enemy, spawnerR.position, Quaternion.identity);
     }
     
-    private void SpawnWave2()
+    private IEnumerator SpawnWave2()
     {
         Instantiate(Enemy, spawnerL.position, Quaternion.identity);
-        Instantiate(Enemy, spawnerM.position, Quaternion.identity);
         Instantiate(Enemy, spawnerR.position, Quaternion.identity);
-        Instantiate(Enemy,  spawnerL.position + Vector3.right * 2, Quaternion.identity);
-        Instantiate(Enemy,  spawnerL.position + Vector3.left * 2, Quaternion.identity);
+        
+        yield return new WaitForSeconds(3.5f);
+        
+        Instantiate(Enemy, spawnerL.position, Quaternion.identity);
+        Instantiate(Enemy, spawnerM.position, Quaternion.identity); 
+        Instantiate(Enemy, spawnerR.position, Quaternion.identity);  
     }
 
     private void SpawnWave3()

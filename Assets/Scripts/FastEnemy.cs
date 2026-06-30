@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class FastEnemy : MonoBehaviour
@@ -17,6 +18,9 @@ public class FastEnemy : MonoBehaviour
     [Header("Health")]
     public int maxHP = 3;
     int currentHP;
+    
+    MeshRenderer rend;
+    Material[] mats;
 
     float timer;
     float stateTimer;
@@ -29,6 +33,9 @@ public class FastEnemy : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
+        
+        rend = GetComponent<MeshRenderer>();
+        mats = rend.materials;
     }
 
     void Update()
@@ -82,6 +89,9 @@ public class FastEnemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if(state == 2)
+        StartCoroutine(HitDamage());
+        
         if (invincible)
             return;
 
@@ -90,6 +100,26 @@ public class FastEnemy : MonoBehaviour
         if (currentHP <= 0)
         {
             Die();
+        }
+    }
+    
+    IEnumerator HitDamage()
+    {
+        foreach (Material mat in mats)
+        {
+            if (mat.HasProperty("_EmissionColor"))
+            {
+                mat.EnableKeyword("_EMISSION");
+                mat.SetColor("_EmissionColor", Color.red * 1f);
+            }
+        }
+        
+        yield return  new WaitForSeconds(0.1f);
+
+        foreach (Material mat in mats)
+        {
+            if (mat.HasProperty("_EmissionColor"))
+                mat.SetColor("_EmissionColor", Color.black);
         }
     }
 

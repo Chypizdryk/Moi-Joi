@@ -8,6 +8,7 @@ TagManager:
   - FastEnemy
   - EnemyBullet
   - PlayerBullet
+  - SinEnemy
   layers:
   - Default
   - TransparentFX

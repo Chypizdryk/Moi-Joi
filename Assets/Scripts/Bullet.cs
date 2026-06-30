@@ -37,6 +37,18 @@ public class Bullet : MonoBehaviour
 
                 Destroy(gameObject);
             }
+            
+            if (other.CompareTag("SinEnemy"))
+            {
+                SinEnemy sinenemy = other.GetComponentInParent<SinEnemy>();
+
+                if (sinenemy != null)
+                {
+                    sinenemy.TakeDamage(damage);
+                }
+
+                Destroy(gameObject);
+            }
 
             if (other.CompareTag("Player"))
             {
