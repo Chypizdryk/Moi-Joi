@@ -50,6 +50,9 @@ public class SinEnemy : MonoBehaviour
 
     void Update()
     {
+        if (transform.position.z < -15)
+            Destroy(gameObject);
+        
         timer += Time.deltaTime;
         
         if (state == 0)
@@ -142,6 +145,7 @@ public class SinEnemy : MonoBehaviour
 
     void Die()
     {
+        ScoreText.Instance.AddScore(100);
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

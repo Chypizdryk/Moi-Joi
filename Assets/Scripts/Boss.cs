@@ -18,8 +18,8 @@ public class Boss : MonoBehaviour
     int currentHP;
     
     [Header("Sin Movement")]
-    public float frequency = 1f;
-    public float amplitude = 3f; 
+    public float frequency = 1.6f;
+    public float amplitude = 4f; 
 
     MeshRenderer rend;
     Material[] mats;
@@ -92,12 +92,11 @@ public class Boss : MonoBehaviour
             
             if (Time.time >= nextShoot)
             {
+                if (phase < 3)
                 fire.Shoot();
 
-                if (phase >= 2)
-                {
+                if (phase == 3)
                     fire2.Shoot();
-                }
 
                 nextShoot = Time.time + shootInterval;
             }
@@ -119,15 +118,16 @@ public class Boss : MonoBehaviour
         if (phase == 1 && currentHP <= maxHP * 2 / 3)
         {
             phase = 2;
-            shootInterval = 1.2f;
-            amplitude = 4f;
+            shootInterval = 0.4f;
+            amplitude = 7f;
         }
 
         if (phase == 2 && currentHP <= maxHP / 3)
         {
             phase = 3;
-            shootInterval  = 1f;
-            amplitude = 4.5f;
+            shootInterval  = 0.8f;
+            amplitude = 9f;
+            frequency = 1.8f;
         }
         
         if (currentHP <= 0)
@@ -158,6 +158,7 @@ public class Boss : MonoBehaviour
 
     void Die()
     {
+        ScoreText.Instance.AddScore(250);
         Destroy(gameObject);
     }
 }

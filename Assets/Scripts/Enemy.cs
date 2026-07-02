@@ -44,6 +44,9 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (transform.position.z < -15)
+            Destroy(gameObject);
+        
         timer += Time.deltaTime;
 
         if (state == 0)
@@ -131,6 +134,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        ScoreText.Instance.AddScore(20);
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

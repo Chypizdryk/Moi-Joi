@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f17a432e2f6341ac21a0066ca8620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  maxHP: 3
+  maxHP: 5
   Speed: 14.5
   MinX: 1
   MaxX: 21.5

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3959196779045979728}
   - component: {fileID: 9041924331937874822}
   - component: {fileID: 2791421425221525632}
-  - component: {fileID: 327569126131477866}
+  - component: {fileID: 8496687889031918042}
   m_Layer: 0
   m_Name: BossShip
   m_TagString: Boss
@@ -53,15 +53,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a773c00477454b4698573de12298b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  enterTime: 2.5
-  waitTime: 1
-  enterSpeed: 2
+  enterTime: 3
+  waitTime: 1.2
+  enterSpeed: 1.7
   fire: {fileID: 2791421425221525632}
-  fire2: {fileID: 327569126131477866}
-  shootInterval: 1.5
-  maxHP: 2
+  fire2: {fileID: 8496687889031918042}
+  shootInterval: 1.1
+  maxHP: 50
   frequency: 1
-  amplitude: 4
+  amplitude: 5
 --- !u!54 &3959196779045979728
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,9 +126,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shooting
   Bullet: {fileID: 4658714276036965153, guid: 58685ddcc2815d24ba98bc184243b040, type: 3}
   FirePoint:
-  - {fileID: 5000617685951820697}
-  - {fileID: 2405256174651605048}
---- !u!114 &327569126131477866
+  - {fileID: 196491088555122320}
+  - {fileID: 2672568621027576274}
+--- !u!114 &8496687889031918042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,10 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f6afc6135f17042a05e17d4742ae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooting
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 5721213792882255272, guid: e19882a9a8abc5741bc089989fa9153c, type: 3}
   FirePoint:
-  - {fileID: 196491088555122320}
-  - {fileID: 2672568621027576274}
+  - {fileID: 5000617685951820697}
+  - {fileID: 2405256174651605048}
 --- !u!1 &2229927350806686964
 GameObject:
   m_ObjectHideFlags: 0

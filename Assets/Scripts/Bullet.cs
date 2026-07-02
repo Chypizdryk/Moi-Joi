@@ -1,9 +1,16 @@
+using System;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     public int damage = 1;
     public float speed = 10f;
+    public float lifetime = 3f;
+
+    private void Start()
+    {
+       Destroy(gameObject, lifetime); 
+    }
 
     void Update()
     {

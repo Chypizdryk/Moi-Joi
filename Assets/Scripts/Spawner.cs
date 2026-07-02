@@ -22,31 +22,31 @@ public class Spawner : MonoBehaviour
     {
         float time = Time.time;
         
-        if (time >= 5f && !wave1Spawned)
+        if (time >= 4.5f && !wave1Spawned)
         {
             SpawnWave1();
             wave1Spawned = true;
         }
 
-        if (time >= 17f && !wave2Spawned)
+        if (time >= 20f && !wave2Spawned)
         {
             StartCoroutine(SpawnWave2());
             wave2Spawned = true;
         }
 
-        if (time >= 35f && !wave3Spawned)
+        if (time >= 39f && !wave3Spawned)
         {
             SpawnWave3();
             wave3Spawned = true;
         }
 
-        if (time >= 45f && !wave4Spawned)
+        if (time >= 48f && !wave4Spawned)
         {
             SpawnWave4();
             wave4Spawned = true;
         }
 
-        if (time >= 57f && !bossSpawned)
+        if (time >= 61f && !bossSpawned)
         {
             SpawnBoss();
             bossSpawned = true;

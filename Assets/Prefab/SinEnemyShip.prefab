@@ -87,8 +87,8 @@ MonoBehaviour:
   enterTime: 2
   waitTime: 1
   fire: {fileID: 3959651485085094856}
-  shootInterval: 2
-  maxHP: 2
+  shootInterval: 1.8
+  maxHP: 3
   explosionPrefab: {fileID: 8945456791454951979, guid: 6395cb8b6101f484ab1fa47463b0b267, type: 3}
 --- !u!114 &3959651485085094856
 MonoBehaviour:
