@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
 {
     public int maxHP = 10;
     int currentHP;
+    public Lives livesUI;
+    public int lives = 5;
     bool isDead = false;
     
     MeshRenderer rend;
@@ -77,6 +79,9 @@ public class Player : MonoBehaviour
         
         currentHP -= damage;
 
+        lives--;
+        livesUI.LoseLife(lives);
+
         if (currentHP <= 0)
         {
             Die();
@@ -104,7 +109,7 @@ public class Player : MonoBehaviour
     }
 
     void Die()
-    {
+    {        
         isDead = true;
 
         Time.timeScale = 0.2f;

@@ -81,12 +81,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   maxHP: 5
+  livesUI: {fileID: 0}
+  lives: 5
   Speed: 14.5
   MinX: 1
   MaxX: 21.5
   MinZ: -4
   MaxZ: 4
-  Fire: {fileID: 0}
+  Fire: {fileID: 8234176872346609126}
   FireRate: 0.2
 --- !u!114 &8234176872346609126
 MonoBehaviour:

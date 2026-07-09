@@ -129,14 +129,14 @@ public class Boss : MonoBehaviour
         {
             phase = 2;
             shootInterval = 0.4f;
-            amplitude = 8f;
+            amplitude = 8.5f;
         }
 
         if (phase == 2 && currentHP <= maxHP / 3)
         {
             phase = 3;
             shootInterval  = 0.8f;
-            amplitude = 10f;
+            amplitude = 10.5f;
             frequency = 1.8f;
         }
         

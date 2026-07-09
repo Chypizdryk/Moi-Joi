@@ -34,7 +34,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1701077333751602171}
+  - {fileID: 5761950751524573689}
   - {fileID: 196491088555122320}
   - {fileID: 5000617685951820697}
   - {fileID: 2405256174651605048}
@@ -60,8 +60,8 @@ MonoBehaviour:
   fire2: {fileID: 8496687889031918042}
   shootInterval: 1.1
   maxHP: 50
-  frequency: 1
-  amplitude: 5
+  frequency: 1.2
+  amplitude: 6
   healthBar: {fileID: 0}
 --- !u!54 &3959196779045979728
 Rigidbody:
@@ -170,7 +170,7 @@ Transform:
   m_GameObject: {fileID: 2229927350806686964}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -7.776, y: 0.021, z: -2.815}
+  m_LocalPosition: {x: -7.67, y: 0.021, z: -2.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 3274145499561423882}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4.58, y: -0.05, z: -4.7}
+  m_LocalPosition: {x: -5.13, y: -0.05, z: -4.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -232,7 +232,7 @@ Transform:
   m_GameObject: {fileID: 7974815620139020386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 7.79, y: -0.01, z: -2.791}
+  m_LocalPosition: {x: 7.76, y: -0.01, z: -2.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -263,13 +263,13 @@ Transform:
   m_GameObject: {fileID: 8655967703816018961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 4.59, y: -0.01, z: -4.74}
+  m_LocalPosition: {x: 5.17, y: -0.01, z: -4.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3393682258192459421}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1001 &1157928336878926864
+--- !u!1001 &5223109949107189266
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -342,8 +342,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
---- !u!4 &1701077333751602171 stripped
+--- !u!4 &5761950751524573689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
-  m_PrefabInstance: {fileID: 1157928336878926864}
+  m_PrefabInstance: {fileID: 5223109949107189266}
   m_PrefabAsset: {fileID: 0}
