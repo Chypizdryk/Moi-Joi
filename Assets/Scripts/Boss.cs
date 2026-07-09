@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
@@ -18,12 +19,14 @@ public class Boss : MonoBehaviour
     int currentHP;
     
     [Header("Sin Movement")]
-    public float frequency = 1.6f;
-    public float amplitude = 4f; 
+    public float frequency = 1.7f;
+    public float amplitude = 6f; 
 
     MeshRenderer rend;
     Material[] mats;
 
+    public Slider healthBar;
+    
     float timer;
     float stateTimer;
     float nextShoot;
@@ -102,6 +105,12 @@ public class Boss : MonoBehaviour
             }
         }
     }
+
+    public void SetHP()
+    {
+        healthBar.maxValue = maxHP;
+        healthBar.value = maxHP;
+    }
     
     public void TakeDamage(int damage)
     {
@@ -114,19 +123,20 @@ public class Boss : MonoBehaviour
         }
         
         currentHP -= damage;
+        healthBar.value = currentHP;
 
         if (phase == 1 && currentHP <= maxHP * 2 / 3)
         {
             phase = 2;
             shootInterval = 0.4f;
-            amplitude = 7f;
+            amplitude = 8f;
         }
 
         if (phase == 2 && currentHP <= maxHP / 3)
         {
             phase = 3;
             shootInterval  = 0.8f;
-            amplitude = 9f;
+            amplitude = 10f;
             frequency = 1.8f;
         }
         
@@ -147,7 +157,7 @@ public class Boss : MonoBehaviour
             }
         }
         
-        yield return  new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.1f);
 
         foreach (Material mat in mats)
         {
@@ -159,6 +169,11 @@ public class Boss : MonoBehaviour
     void Die()
     {
         ScoreText.Instance.AddScore(250);
+        
         Destroy(gameObject);
+        
+        healthBar.gameObject.SetActive(false);
+        
+        FindObjectOfType<GameManager>().Win();
     }
 }

@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     public GameObject FastEnemy;
     public GameObject SinEnemy;
     public GameObject Boss;
+    public Slider BossHP;
     public Transform spawnerL;
     public Transform spawnerM;
     public Transform spawnerR;
@@ -16,11 +17,18 @@ public class Spawner : MonoBehaviour
     private bool wave2Spawned;
     private bool wave3Spawned;
     private bool wave4Spawned;
+    private bool wave5Spawned;
+    private bool wave6Spawned;
+    private bool wave7Spawned;
+    private bool wave8Spawned;
+    private bool wave9Spawned;
     private bool bossSpawned;
+    
+    float time = 0f;
     
     void Update()
     {
-        float time = Time.time;
+        time += Time.deltaTime;
         
         if (time >= 4.5f && !wave1Spawned)
         {
@@ -45,8 +53,32 @@ public class Spawner : MonoBehaviour
             SpawnWave4();
             wave4Spawned = true;
         }
+        
+        if (time >= 61f && !wave5Spawned)
+        {
+            SpawnWave5();
+            wave5Spawned = true;
+        }
+        
+        if (time >= 74f && !wave6Spawned)
+        {
+            SpawnWave6();
+            wave6Spawned = true;
+        }
+        
+        if (time >= 87f && !wave7Spawned)
+        {
+            SpawnWave7();
+            wave7Spawned = true;
+        }
+        
+        if (time >= 100f && !wave8Spawned)
+        {
+            SpawnWave8();
+            wave8Spawned = true;
+        }
 
-        if (time >= 61f && !bossSpawned)
+        if (time >= 113f && !bossSpawned)
         {
             SpawnBoss();
             bossSpawned = true;
@@ -56,7 +88,6 @@ public class Spawner : MonoBehaviour
     private void SpawnWave1()
     {
         Instantiate(Enemy, spawnerL.position, Quaternion.identity);
-        Instantiate(Enemy, spawnerM.position, Quaternion.identity);
         Instantiate(Enemy, spawnerR.position, Quaternion.identity);
     }
     
@@ -74,11 +105,38 @@ public class Spawner : MonoBehaviour
 
     private void SpawnWave3()
     {
-        Instantiate(FastEnemy, spawnerL.position, Quaternion.identity);
-        Instantiate(FastEnemy, spawnerR.position, Quaternion.identity);
+        Instantiate(Enemy, spawnerL.position, Quaternion.identity);
+        Instantiate(FastEnemy, spawnerM.position, Quaternion.identity);
+        Instantiate(Enemy, spawnerR.position, Quaternion.identity);
     } 
     
     private void SpawnWave4() 
+    {
+        Instantiate(SinEnemy, spawnerL.position, Quaternion.identity);
+        Instantiate(SinEnemy, spawnerR.position, Quaternion.identity);
+    }
+    
+    private void SpawnWave5() 
+    {
+        Instantiate(Enemy, spawnerL.position, Quaternion.identity);
+        Instantiate(Enemy, spawnerM.position, Quaternion.identity);
+        Instantiate(Enemy, spawnerR.position, Quaternion.identity);
+    }
+    
+    private void SpawnWave6() 
+    {
+        Instantiate(FastEnemy, spawnerL.position, Quaternion.identity);
+        Instantiate(FastEnemy, spawnerR.position, Quaternion.identity);
+    }
+    
+    private void SpawnWave7() 
+    {
+        Instantiate(Enemy, spawnerL.position, Quaternion.identity);
+        Instantiate(SinEnemy, spawnerM.position, Quaternion.identity);
+        Instantiate(Enemy, spawnerR.position, Quaternion.identity);
+    }
+    
+    private void SpawnWave8() 
     {
         Instantiate(SinEnemy, spawnerL.position, Quaternion.identity);
         Instantiate(SinEnemy, spawnerM.position, Quaternion.identity);
@@ -87,6 +145,13 @@ public class Spawner : MonoBehaviour
     
     private void SpawnBoss()
     {
-        Instantiate(Boss, spawnerM.position, Quaternion.identity);
+        GameObject boss = Instantiate(Boss, spawnerM.position, Quaternion.identity);
+        
+        Boss bossScript = boss.GetComponent<Boss>();
+        
+        bossScript.healthBar = BossHP;
+        bossScript.SetHP();
+        
+        BossHP.gameObject.SetActive(true);
     }
 }

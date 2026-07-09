@@ -119,7 +119,7 @@ public class FastEnemy : MonoBehaviour
             }
         }
         
-        yield return  new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.1f);
 
         foreach (Material mat in mats)
         {
@@ -131,7 +131,10 @@ public class FastEnemy : MonoBehaviour
     void Die()
     {
         ScoreText.Instance.AddScore(50);
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        
+        GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(exp, 1f);
+        
         Destroy(gameObject);
     }
 }

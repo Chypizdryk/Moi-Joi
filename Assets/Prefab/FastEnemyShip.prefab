@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FastEnemy
   enterSpeed: 2
-  moveSpeed: 5
+  moveSpeed: 5.1
   enterTime: 2
   waitTime: 1.5
   fire: {fileID: 1526086594594070383}

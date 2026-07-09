@@ -34,7 +34,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 4975966946492643749}
+  - {fileID: 1701077333751602171}
   - {fileID: 196491088555122320}
   - {fileID: 5000617685951820697}
   - {fileID: 2405256174651605048}
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a773c00477454b4698573de12298b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss
-  enterTime: 3
+  enterTime: 3.2
   waitTime: 1.2
   enterSpeed: 1.7
   fire: {fileID: 2791421425221525632}
@@ -62,6 +62,7 @@ MonoBehaviour:
   maxHP: 50
   frequency: 1
   amplitude: 5
+  healthBar: {fileID: 0}
 --- !u!54 &3959196779045979728
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -268,7 +269,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3393682258192459421}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1001 &4793121859043991118
+--- !u!1001 &1157928336878926864
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -341,8 +342,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
---- !u!4 &4975966946492643749 stripped
+--- !u!4 &1701077333751602171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
-  m_PrefabInstance: {fileID: 4793121859043991118}
+  m_PrefabInstance: {fileID: 1157928336878926864}
   m_PrefabAsset: {fileID: 0}

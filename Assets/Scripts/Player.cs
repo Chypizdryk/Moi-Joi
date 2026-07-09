@@ -67,6 +67,8 @@ public class Player : MonoBehaviour
             Fire.Shoot();
             nextFire = Time.time + FireRate;
         }
+        
+        
     }
 
     public void TakeDamage(int damage)
@@ -92,7 +94,7 @@ public class Player : MonoBehaviour
             }
         }
         
-        yield return  new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.1f);
 
         foreach (Material mat in mats)
         {
@@ -109,7 +111,9 @@ public class Player : MonoBehaviour
 
         Fire.enabled = false;
 
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 0.6f);
+        
+        FindObjectOfType<GameManager>().GameOver();
     }
 
     void OnTriggerEnter(Collider other)
