@@ -59,8 +59,8 @@ MonoBehaviour:
   fire: {fileID: 2791421425221525632}
   fire2: {fileID: 8496687889031918042}
   shootInterval: 1.1
-  maxHP: 50
-  frequency: 1.2
+  maxHP: 100
+  frequency: 1.35
   amplitude: 6
   healthBar: {fileID: 0}
 --- !u!54 &3959196779045979728

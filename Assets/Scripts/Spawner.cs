@@ -112,28 +112,28 @@ public class Spawner : MonoBehaviour
     
     private void SpawnWave4() 
     {
-        Instantiate(SinEnemy, spawnerL.position, Quaternion.identity);
-        Instantiate(SinEnemy, spawnerR.position, Quaternion.identity);
-    }
-    
-    private void SpawnWave5() 
-    {
         Instantiate(Enemy, spawnerL.position, Quaternion.identity);
         Instantiate(Enemy, spawnerM.position, Quaternion.identity);
         Instantiate(Enemy, spawnerR.position, Quaternion.identity);
     }
-    
-    private void SpawnWave6() 
+
+    private void SpawnWave5()
     {
         Instantiate(FastEnemy, spawnerL.position, Quaternion.identity);
         Instantiate(FastEnemy, spawnerR.position, Quaternion.identity);
     }
-    
-    private void SpawnWave7() 
+
+    private void SpawnWave6() 
     {
         Instantiate(Enemy, spawnerL.position, Quaternion.identity);
         Instantiate(SinEnemy, spawnerM.position, Quaternion.identity);
         Instantiate(Enemy, spawnerR.position, Quaternion.identity);
+    }
+    
+    private void SpawnWave7() 
+    {
+        Instantiate(SinEnemy, spawnerL.position, Quaternion.identity);
+        Instantiate(SinEnemy, spawnerR.position, Quaternion.identity);
     }
     
     private void SpawnWave8() 

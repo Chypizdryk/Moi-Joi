@@ -118,6 +118,8 @@ public class Player : MonoBehaviour
 
         Destroy(gameObject, 0.6f);
         
+        ScoreText.Instance.SaveHighScore();
+        
         FindObjectOfType<GameManager>().GameOver();
     }
 
