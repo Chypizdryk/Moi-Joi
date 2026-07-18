@@ -1,4 +1,4 @@
-Void Hunter
+Moi Joi
 
 Autoren
 
@@ -6,7 +6,7 @@ Volodymyr Velychko
 
 Projektbeschreibung
 
-Void Hunter ist ein 2.5D Shoot-’em-up-Spiel, das mit der Unity-Engine entwickelt wurde. Der Spieler steuert ein Raumschiff, kämpft gegen verschiedene Gegnertypen und muss am Ende des Levels einen Boss besiegen.
+Moi Joi ist ein 2.5D Shoot-’em-up-Spiel, das mit der Unity-Engine entwickelt wurde. Der Spieler steuert ein Raumschiff, kämpft gegen verschiedene Gegnertypen und muss am Ende des Levels einen Boss besiegen.
 
 Das Ziel des Spiels ist es, das Level zu überleben, den Boss zu besiegen und einen möglichst hohen Highscore zu erreichen.
 
@@ -27,8 +27,9 @@ Sieg- und Game-Over-Menü
 Steuerung
 
 W / A / S / D – Bewegen
-Linke Maustaste – Schießen
+Leerzeichen(Space) – Schießen
 Linke Umschalttaste (Shift) – Dash
+Escape - Pause
 
 Projektinformationen
 
