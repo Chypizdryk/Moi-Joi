@@ -27,8 +27,11 @@ Sieg- und Game-Over-Menü
 Steuerung
 
 W / A / S / D – Bewegen
+
 Leerzeichen(Space) – Schießen
+
 Linke Umschalttaste (Shift) – Dash
+
 Escape - Pause
 
 Projektinformationen
