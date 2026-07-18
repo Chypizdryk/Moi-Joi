@@ -1,16 +1,16 @@
 Moi Joi
 
-Autoren
+Autoren:
 
 Volodymyr Velychko
 
-Projektbeschreibung
+Projektbeschreibung:
 
 Moi Joi ist ein 2.5D Shoot-’em-up-Spiel, das mit der Unity-Engine entwickelt wurde. Der Spieler steuert ein Raumschiff, kämpft gegen verschiedene Gegnertypen und muss am Ende des Levels einen Boss besiegen.
 
 Das Ziel des Spiels ist es, das Level zu überleben, den Boss zu besiegen und einen möglichst hohen Highscore zu erreichen.
 
-Features
+Features:
 
 Spielerbewegung
 Schusssystem
@@ -24,7 +24,7 @@ Dash-Funktion
 Hauptmenü
 Sieg- und Game-Over-Menü
 
-Steuerung
+Steuerung:
 
 W / A / S / D – Bewegen
 
@@ -34,13 +34,13 @@ Linke Umschalttaste (Shift) – Dash
 
 Escape - Pause
 
-Projektinformationen
+Projektinformationen:
 
 Engine: Unity
 Genre: 2.5D Shoot-’em-up
 Plattform: Windows
 
-Projekt starten
+Projekt starten:
 
 Variante 1 – Exe-Datei
 
@@ -54,15 +54,18 @@ Das Projekt mit der passenden Unity-Version öffnen.
 Die Hauptszene öffnen.
 Auf Play klicken.
 
-Verwendete Assets
+Verwendete Assets:
 
-Bitte hier alle externen Assets eintragen, zum Beispiel:
+Eigene 3D-Modelle
 
-Unity Standard Assets
-Kostenlose Soundeffekte
-Kostenlose Texturen
-Verwendete Schriftarten
+Eigene Materialien für Projektile und Raumschiffe
 
-GitHub
+Kenney UI Pack
+
+Kenney Fonts
+
+TextMeshPro (Unity)
+
+GitHub:
 
 Dieses Projekt wurde mit GitHub zur Versionsverwaltung entwickelt.
