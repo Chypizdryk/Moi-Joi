@@ -60,9 +60,11 @@ MonoBehaviour:
   fire2: {fileID: 8496687889031918042}
   shootInterval: 1.1
   maxHP: 100
-  frequency: 1.35
+  frequency: 1.345
   amplitude: 6
   healthBar: {fileID: 0}
+  damagedSound: {fileID: 8300000, guid: 57403a6941b5fba4c99daf68fea035be, type: 3}
+  explosionSound: {fileID: 8300000, guid: 1ceaf1be004f06f419a773fd255adae2, type: 3}
 --- !u!54 &3959196779045979728
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,10 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f6afc6135f17042a05e17d4742ae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooting
-  Bullet: {fileID: 4658714276036965153, guid: 58685ddcc2815d24ba98bc184243b040, type: 3}
-  FirePoint:
+  bullet: {fileID: 4658714276036965153, guid: 58685ddcc2815d24ba98bc184243b040, type: 3}
+  firePoint:
   - {fileID: 196491088555122320}
   - {fileID: 2672568621027576274}
+  shootSound: {fileID: 8300000, guid: d2fded086b97b7643be2761c861d517e, type: 3}
 --- !u!114 &8496687889031918042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,10 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f6afc6135f17042a05e17d4742ae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooting
-  Bullet: {fileID: 5721213792882255272, guid: e19882a9a8abc5741bc089989fa9153c, type: 3}
-  FirePoint:
+  bullet: {fileID: 5721213792882255272, guid: e19882a9a8abc5741bc089989fa9153c, type: 3}
+  firePoint:
   - {fileID: 5000617685951820697}
   - {fileID: 2405256174651605048}
+  shootSound: {fileID: 8300000, guid: d7a355a9b254f9d4eb944827c6bc95ed, type: 3}
 --- !u!1 &2229927350806686964
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +337,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a9417ab4cd4714e45af1e75e884e155c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7486101756742cd4183ee7dd160404ff, type: 2}
+    - target: {fileID: -7511558181221131132, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7418c7d6bcd36954d83e5a54779514b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 563f3a929428e1e42bc6bc777a6f66ac, type: 2}
+    - target: {fileID: -7511558181221131132, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ca92bb431f40cf46862c970ecd18a0b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d49001d1c4c0840478f59991b56c0637, type: 2}
     - target: {fileID: 919132149155446097, guid: a21d22f38e84d594a844b5b780728f54, type: 3}
       propertyPath: m_Name
       value: Boss

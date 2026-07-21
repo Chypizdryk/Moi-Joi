@@ -31,6 +31,9 @@ public class FastEnemy : MonoBehaviour
     int state = 0;
 
     bool invincible = true;
+    
+    public AudioClip damageSound;
+    public AudioClip explosionSound;
 
     void Start()
     {
@@ -97,6 +100,8 @@ public class FastEnemy : MonoBehaviour
         if(state == 2)
         StartCoroutine(HitDamage());
         
+        AudioManager.instance.Play(damageSound);
+        
         if (invincible)
             return;
 
@@ -131,6 +136,8 @@ public class FastEnemy : MonoBehaviour
     void Die()
     {
         ScoreText.Instance.AddScore(50);
+        
+        AudioManager.instance.Play(explosionSound);
         
         GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(exp, 1f);

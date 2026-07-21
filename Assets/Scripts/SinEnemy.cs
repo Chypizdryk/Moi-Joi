@@ -35,6 +35,9 @@ public class SinEnemy : MonoBehaviour
     bool invincible = true;
 
     int state = 0;
+    
+    public AudioClip damageSound;
+    public AudioClip explosionSound;
 
     float startX;
     float sinTimer;
@@ -112,6 +115,8 @@ public class SinEnemy : MonoBehaviour
         if(state == 2)
         StartCoroutine(HitDamage());
         
+        AudioManager.instance.Play(damageSound);
+        
         if (invincible)
             return;
 
@@ -146,6 +151,8 @@ public class SinEnemy : MonoBehaviour
     void Die()
     {
         ScoreText.Instance.AddScore(100);
+        
+        AudioManager.instance.Play(explosionSound);
         
         GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(exp, 1f);

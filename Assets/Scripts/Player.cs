@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int maxHP = 10;
+    public int maxHP;
     int currentHP;
     public Lives livesUI;
-    public int lives = 5;
+    public int lives = 6;
     bool isDead = false;
     
     MeshRenderer rend;
@@ -14,6 +14,13 @@ public class Player : MonoBehaviour
 
     public float Speed = 5f;
 
+    public float dashSpeed = 22f;
+    public float dashTime = 0.18f;
+    public float dashCooldown = 1f;
+    
+    private bool isDashing = false;
+    private float dashCooldownTimer = 0f;
+    
     public float MinX = -4f;
     public float MaxX = 4f;
 
@@ -24,6 +31,8 @@ public class Player : MonoBehaviour
     public float FireRate = 0.2f;
 
     private float nextFire;
+    
+    public AudioClip damagedSound;
 
     void Start()
     {
@@ -43,9 +52,11 @@ public class Player : MonoBehaviour
 
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey(KeyCode.LeftShift) && !isDashing && dashCooldownTimer <= 0)
+            StartCoroutine(Dash());
 
         Vector3 movement = new Vector3(h, 0f, v).normalized;
-
+        
         transform.position += movement * Speed * Time.deltaTime;
 
         Vector3 pos = transform.position;
@@ -53,6 +64,9 @@ public class Player : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, MinZ, MaxZ);
         transform.position = pos;
 
+        if (dashCooldownTimer > 0)
+            dashCooldownTimer -= Time.deltaTime;
+        
         float targetTilt = -h * 10f;
 
         Quaternion targetRotation =
@@ -69,13 +83,13 @@ public class Player : MonoBehaviour
             Fire.Shoot();
             nextFire = Time.time + FireRate;
         }
-        
-        
     }
 
     public void TakeDamage(int damage)
     {
         StartCoroutine(HitDamage());
+        
+        AudioManager.instance.Play(damagedSound);
         
         currentHP -= damage;
 
@@ -86,6 +100,20 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+    }
+
+    IEnumerator Dash()
+    {
+        isDashing = true;
+        dashCooldownTimer = dashCooldown;
+        
+        float oldSpeed = Speed;
+        Speed = dashSpeed;
+        
+        yield return new WaitForSeconds(dashTime);
+        
+        Speed = oldSpeed;
+        isDashing = false;
     }
     
     IEnumerator HitDamage()
@@ -116,10 +144,16 @@ public class Player : MonoBehaviour
 
         Fire.enabled = false;
 
-        Destroy(gameObject, 0.6f);
+        Destroy(gameObject, 1f);
         
         ScoreText.Instance.SaveHighScore();
-        
+
+        StartCoroutine(GameOverDelay());
+    }
+
+    IEnumerator GameOverDelay()
+    {
+        yield return new WaitForSecondsRealtime(1f);
         FindObjectOfType<GameManager>().GameOver();
     }
 

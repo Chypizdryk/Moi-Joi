@@ -34,6 +34,9 @@ public class Enemy : MonoBehaviour
     
     int state = 0;
 
+    public AudioClip damageSound;
+    public AudioClip explosionSound;
+
     void Start()
     {
         currentHP = maxHP;
@@ -99,6 +102,8 @@ public class Enemy : MonoBehaviour
         if (state == 2)
         StartCoroutine(HitDamage());
         
+        AudioManager.instance.Play(damageSound);
+        
         if (invincible)
         {
             return;
@@ -135,6 +140,8 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         ScoreText.Instance.AddScore(20);
+        
+        AudioManager.instance.Play(explosionSound);
         
         GameObject exp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(exp, 1f);

@@ -64,7 +64,7 @@ Transform:
   m_LocalScale: {x: 1.05, y: 1.05, z: 1.05}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1030393570651428797}
+  - {fileID: 5615731145339822940}
   - {fileID: 1867709371391577232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,12 +84,16 @@ MonoBehaviour:
   livesUI: {fileID: 0}
   lives: 5
   Speed: 14.5
+  dashSpeed: 22
+  dashTime: 0.18
+  dashCooldown: 1
   MinX: 1
   MaxX: 21.5
   MinZ: -4
   MaxZ: 4
   Fire: {fileID: 8234176872346609126}
   FireRate: 0.2
+  damagedSound: {fileID: 8300000, guid: 57403a6941b5fba4c99daf68fea035be, type: 3}
 --- !u!114 &8234176872346609126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,9 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f6afc6135f17042a05e17d4742ae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooting
-  Bullet: {fileID: 4494255072908714552, guid: cb467e21c3c8ad44a85fb36538e0928a, type: 3}
-  FirePoint:
+  bullet: {fileID: 4494255072908714552, guid: cb467e21c3c8ad44a85fb36538e0928a, type: 3}
+  firePoint:
   - {fileID: 1867709371391577232}
+  shootSound: {fileID: 8300000, guid: 2c3b23c43a4d11f479aaafc91263a34f, type: 3}
 --- !u!54 &7573625654959051657
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,7 +160,7 @@ CapsuleCollider:
   m_Height: 1.64
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.32}
---- !u!1001 &704259201701720150
+--- !u!1001 &5360880890722288823
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -165,15 +170,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.37
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05979479
+      value: 0.05656264
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.24092345
+      value: 0.22790056
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
       propertyPath: m_LocalPosition.x
@@ -219,6 +224,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a61ddaa5080f931419040dba7a373a45, type: 2}
+    - target: {fileID: -7511558181221131132, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ca92bb431f40cf46862c970ecd18a0b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c07d87ad0cb91cd47bf263311872fc8c, type: 2}
     - target: {fileID: 919132149155446097, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
       propertyPath: m_Name
       value: Player
@@ -228,8 +245,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
---- !u!4 &1030393570651428797 stripped
+--- !u!4 &5615731145339822940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6d03c1b7c91e714fa2ca8b0530dd355, type: 3}
-  m_PrefabInstance: {fileID: 704259201701720150}
+  m_PrefabInstance: {fileID: 5360880890722288823}
   m_PrefabAsset: {fileID: 0}

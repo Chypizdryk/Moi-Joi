@@ -90,6 +90,8 @@ MonoBehaviour:
   shootInterval: 1.8
   maxHP: 3
   explosionPrefab: {fileID: 8945456791454951979, guid: 6395cb8b6101f484ab1fa47463b0b267, type: 3}
+  damageSound: {fileID: 8300000, guid: 57403a6941b5fba4c99daf68fea035be, type: 3}
+  explosionSound: {fileID: 8300000, guid: 6c851e0b2f67eb8469182a9f36889834, type: 3}
 --- !u!114 &3959651485085094856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,9 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f6afc6135f17042a05e17d4742ae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooting
-  Bullet: {fileID: 891979421615028058, guid: a5442beef35b4bc41878c391115bc2d6, type: 3}
-  FirePoint:
+  bullet: {fileID: 891979421615028058, guid: a5442beef35b4bc41878c391115bc2d6, type: 3}
+  firePoint:
   - {fileID: 6953512718056277807}
+  shootSound: {fileID: 8300000, guid: d2fded086b97b7643be2761c861d517e, type: 3}
 --- !u!54 &-727748341625768137
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -219,6 +222,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0df5ec51674fa3743ac04056439970c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 336958287b6438141b0912428b7c33cd, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 0df5ec51674fa3743ac04056439970c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7418c7d6bcd36954d83e5a54779514b0, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 0df5ec51674fa3743ac04056439970c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ca92bb431f40cf46862c970ecd18a0b, type: 2}
     - target: {fileID: 919132149155446097, guid: 0df5ec51674fa3743ac04056439970c5, type: 3}
       propertyPath: m_Name
       value: 'SinEnemy '

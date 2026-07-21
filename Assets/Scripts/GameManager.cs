@@ -3,18 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject GameOverScreen;
-    public GameObject WinScreen;
+    public GameObject gameOverScreen;
+    public GameObject winScreen;
+    public GameObject gameUI;
 
     public void GameOver()
     {
-        GameOverScreen.SetActive(true);
+        gameOverScreen.SetActive(true);
+        gameUI.SetActive(false);
         Time.timeScale = 0;
     }
 
     public void Win()
     {
-        WinScreen.SetActive(true);
+        winScreen.SetActive(true);
+        gameUI.SetActive(false);
         Time.timeScale = 0;
     }
 
@@ -29,5 +32,4 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
-    
 }

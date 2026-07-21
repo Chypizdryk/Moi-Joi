@@ -3,7 +3,7 @@ using UnityEngine;
 public class Lives : MonoBehaviour
 {
     public GameObject[] hp;
-    private int CurrentHP = 4;
+    private int CurrentHP = 5;
     
     public void LoseLife(int lives)
     {

@@ -27,6 +27,9 @@ public class Boss : MonoBehaviour
 
     public Slider healthBar;
     
+    public AudioClip damagedSound;
+    public AudioClip explosionSound;
+    
     float timer;
     float stateTimer;
     float nextShoot;
@@ -117,6 +120,8 @@ public class Boss : MonoBehaviour
         if (state == 2)
             StartCoroutine(HitDamage());
         
+        AudioManager.instance.Play(damagedSound);
+        
         if (invincible)
         {
             return;
@@ -129,14 +134,14 @@ public class Boss : MonoBehaviour
         {
             phase = 2;
             shootInterval = 0.4f;
-            amplitude = 8.5f;
+            amplitude = 9f;
         }
 
         if (phase == 2 && currentHP <= maxHP / 3)
         {
             phase = 3;
             shootInterval  = 0.8f;
-            amplitude = 10.5f;
+            amplitude = 11f;
             frequency = 1.8f;
         }
         
@@ -169,6 +174,8 @@ public class Boss : MonoBehaviour
     void Die()
     {
         ScoreText.Instance.AddScore(250);
+        
+        AudioManager.instance.Play(explosionSound);
         
         Destroy(gameObject);
         

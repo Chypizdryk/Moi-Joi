@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public GameObject Bullet;
-    public Transform[] FirePoint;
+    public GameObject bullet;
+    public Transform[] firePoint;
+    public AudioClip shootSound;
    
     public void Shoot()
     {
-        foreach (Transform fp in FirePoint)
+        foreach (Transform fp in firePoint)
         {
-            Instantiate(Bullet, fp.position, fp.rotation);
+            Instantiate(bullet, fp.position, fp.rotation);
+
+            AudioManager.instance.Play(shootSound);
         }
     }
 }

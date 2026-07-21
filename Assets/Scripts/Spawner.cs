@@ -22,6 +22,7 @@ public class Spawner : MonoBehaviour
     private bool wave7Spawned;
     private bool wave8Spawned;
     private bool wave9Spawned;
+    private  bool wave10Spawned;
     private bool bossSpawned;
     
     float time = 0f;
@@ -36,49 +37,61 @@ public class Spawner : MonoBehaviour
             wave1Spawned = true;
         }
 
-        if (time >= 20f && !wave2Spawned)
+        if (time >= 19f && !wave2Spawned)
         {
             StartCoroutine(SpawnWave2());
             wave2Spawned = true;
         }
 
-        if (time >= 39f && !wave3Spawned)
+        if (time >= 38f && !wave3Spawned)
         {
             SpawnWave3();
             wave3Spawned = true;
         }
 
-        if (time >= 48f && !wave4Spawned)
+        if (time >= 51f && !wave4Spawned)
         {
             SpawnWave4();
             wave4Spawned = true;
         }
         
-        if (time >= 61f && !wave5Spawned)
+        if (time >= 65f && !wave5Spawned)
         {
             SpawnWave5();
             wave5Spawned = true;
         }
         
-        if (time >= 74f && !wave6Spawned)
+        if (time >= 78f && !wave6Spawned)
         {
             SpawnWave6();
             wave6Spawned = true;
         }
         
-        if (time >= 87f && !wave7Spawned)
+        if (time >= 91f && !wave7Spawned)
         {
             SpawnWave7();
             wave7Spawned = true;
         }
         
-        if (time >= 100f && !wave8Spawned)
+        if (time >= 104f && !wave8Spawned)
         {
             SpawnWave8();
             wave8Spawned = true;
         }
+        
+        if (time >= 117f && !wave9Spawned)
+        {
+            SpawnWave9();
+            wave9Spawned = true;
+        }
+        
+        if (time >= 130f && !wave10Spawned)
+        {
+            SpawnWave10();
+            wave10Spawned = true;
+        }
 
-        if (time >= 113f && !bossSpawned)
+        if (time >= 144f && !bossSpawned)
         {
             SpawnBoss();
             bossSpawned = true;
@@ -96,7 +109,7 @@ public class Spawner : MonoBehaviour
         Instantiate(Enemy, spawnerL.position, Quaternion.identity);
         Instantiate(Enemy, spawnerR.position, Quaternion.identity);
         
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(3.6f);
         
         Instantiate(Enemy, spawnerL.position, Quaternion.identity);
         Instantiate(Enemy, spawnerM.position, Quaternion.identity); 
@@ -132,11 +145,25 @@ public class Spawner : MonoBehaviour
     
     private void SpawnWave7() 
     {
+        Instantiate(Enemy, spawnerL.position, Quaternion.identity);
+        Instantiate(Enemy, spawnerM.position, Quaternion.identity);
+        Instantiate(Enemy, spawnerR.position, Quaternion.identity);
+    } 
+    
+    private void SpawnWave8() 
+    {
         Instantiate(SinEnemy, spawnerL.position, Quaternion.identity);
         Instantiate(SinEnemy, spawnerR.position, Quaternion.identity);
     }
     
-    private void SpawnWave8() 
+    private void SpawnWave9()
+    {
+        Instantiate(SinEnemy, spawnerL.position, Quaternion.identity);
+        Instantiate(FastEnemy, spawnerM.position, Quaternion.identity);
+        Instantiate(SinEnemy, spawnerR.position, Quaternion.identity);
+    }
+    
+    private void SpawnWave10()
     {
         Instantiate(SinEnemy, spawnerL.position, Quaternion.identity);
         Instantiate(SinEnemy, spawnerM.position, Quaternion.identity);

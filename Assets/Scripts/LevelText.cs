@@ -6,6 +6,7 @@ public class LevelText : MonoBehaviour
     public GameObject scoreUI;
     public GameObject highScoreUI;
     public GameObject healthUI;
+    public GameObject volume;
     void Start()
     {
         scoreUI.SetActive(false);
@@ -16,7 +17,7 @@ public class LevelText : MonoBehaviour
 
     IEnumerator HideText()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(3f);
         gameObject.SetActive(false);
         scoreUI.SetActive(true);
         highScoreUI.SetActive(true);
