@@ -30,7 +30,7 @@ Sieg- und Game-Over-Menü
 
 Steuerung:
 
-W / A / S / D – Bewegen
+W / A / S / D (Pfeile) – Bewegen
 
 Leerzeichen(Space) – Schießen
 
@@ -67,7 +67,11 @@ Eigene 3D-Modelle
 
 Eigene Materialien für Projektile und Raumschiffe
 
+Eigene Lebenszeichen
+
 Kenney UI Pack
+
+Kenney Sounds Pack
 
 Kenney Fonts
 
