@@ -50,9 +50,11 @@ public class Player : MonoBehaviour
             return;
         }
 
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        if (Input.GetKey(KeyCode.LeftShift) && !isDashing && dashCooldownTimer <= 0)
+        float h = Mathf.Clamp(
+            Input.GetAxisRaw("Horizontal") + MobileInput.MoveInput.x, -1f, 1f);
+        float v = Mathf.Clamp( 
+            Input.GetAxisRaw("Vertical") +  MobileInput.MoveInput.y, -1f, 1f);
+        if ((Input.GetKey(KeyCode.LeftShift) || MobileInput.DashPressed) && !isDashing && dashCooldownTimer <= 0)
             StartCoroutine(Dash());
 
         Vector3 movement = new Vector3(h, 0f, v).normalized;
@@ -78,7 +80,7 @@ public class Player : MonoBehaviour
             10f * Time.deltaTime
         );
 
-        if (Input.GetKey(KeyCode.Space) && Time.time >= nextFire)
+        if ((Input.GetKey(KeyCode.Space) || MobileInput.IsFiring) && Time.time >= nextFire)
         {
             Fire.Shoot();
             nextFire = Time.time + FireRate;
