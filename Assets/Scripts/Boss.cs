@@ -35,6 +35,7 @@ public class Boss : MonoBehaviour
     float nextShoot;
     
     bool invincible = true;
+    bool isDead = false;
     
     int state = 0;
     int phase = 1;
@@ -53,6 +54,12 @@ public class Boss : MonoBehaviour
     
     void Update()
     {
+        if (isDead)
+        {
+            transform.Translate(Vector3.down * 2f * Time.deltaTime);
+            return;
+        }
+        
         timer += Time.deltaTime;
 
         if (state == 0)
@@ -173,14 +180,24 @@ public class Boss : MonoBehaviour
 
     void Die()
     {
+        isDead = true;
+        
         ScoreText.Instance.AddScore(250);
         
         AudioManager.instance.Play(explosionSound);
         
-        Destroy(gameObject);
+        Time.timeScale = 0.2f;
+        
+        Destroy(gameObject, 0.8f);
         
         healthBar.gameObject.SetActive(false);
         
+        StartCoroutine(WinDelay());
+    }
+    
+    IEnumerator WinDelay()
+    {
+        yield return new WaitForSecondsRealtime(1f);
         FindObjectOfType<GameManager>().Win();
     }
 }
